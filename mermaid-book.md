@@ -887,7 +887,6 @@ graph TD
     D --> E[決済処理]
     E --> F[出荷処理]
     F --> G[終了]
-```」
 ```
 
 ChatGPTは既存の図を理解し、要求された変更を加えた新しい図を提案します。これにより、図の進化が非常に効率的になります。
@@ -945,7 +944,6 @@ graph LR
     OrderService --> OrderDB
     ProductService --> ProductDB
     OrderService --> PaymentService
-```」
 ```
 
 生成AIは、コードと図を比較して、図に不足している要素（InventoryService、NotificationServiceなど）を指摘できます。
@@ -1701,26 +1699,26 @@ graph LR
     end
     
     subgraph "ユーザーAPI"
-    user_get[GET /users/{id}]
+    user_get[GET /users/:id]
     user_create[POST /users]
-    user_update[PUT /users/{id}]
-    user_delete[DELETE /users/{id}]
+    user_update[PUT /users/:id]
+    user_delete[DELETE /users/:id]
     end
     
     subgraph "商品API"
     product_list[GET /products]
-    product_get[GET /products/{id}]
+    product_get[GET /products/:id]
     product_create[POST /products]
-    product_update[PUT /products/{id}]
-    product_delete[DELETE /products/{id}]
+    product_update[PUT /products/:id]
+    product_delete[DELETE /products/:id]
     end
     
     subgraph "注文API"
     order_list[GET /orders]
-    order_get[GET /orders/{id}]
+    order_get[GET /orders/:id]
     order_create[POST /orders]
-    order_update[PUT /orders/{id}]
-    order_cancel[POST /orders/{id}/cancel]
+    order_update[PUT /orders/:id]
+    order_cancel[POST /orders/:id/cancel]
     end
     
     auth_login -.-> user_get
@@ -1729,6 +1727,7 @@ graph LR
     
     user_get -.-> order_create
     product_get -.-> order_create
+
 ```
 
 **実装例（注文作成フロー）：**
